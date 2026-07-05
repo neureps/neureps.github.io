@@ -4,8 +4,6 @@
   </a>
 </p>
 
-<h1 align="center">Neureps</h1>
-
 <p align="center">
   <a href="https://neureps.com"><b>neureps.com</b></a> ·
   <a href="https://neureps.com/support/">지원</a> ·

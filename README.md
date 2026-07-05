@@ -1,6 +1,6 @@
 # neureps.com
 
-주식회사 뉴렙스(neureps Inc.) 회사 웹사이트. D-U-N-S 발급 → Apple/Google 개발자 등록 → 애드몹 수익화 단계를 모두 지원하도록 설계된 정적 사이트입니다.
+주식회사 뉴렙스(Neureps Inc.) 회사 웹사이트. D-U-N-S 발급 → Apple/Google 개발자 등록 → 애드몹 수익화 단계를 모두 지원하도록 설계된 정적 사이트입니다.
 
 ## 구조
 

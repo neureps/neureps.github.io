@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c ' *)",
+      "Bash(identify -verbose icon/neureps.png)",
+      "Bash(mkdir -p assets)",
+      "Bash(python3)"
+    ]
+  }
+}

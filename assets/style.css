@@ -1,0 +1,327 @@
+/* neureps.com — brand styles
+   palette: paper #F7F7F1 / ink #24211E / leaf #8DBE8D / deep green #3D6247
+            trunk #8A7A70 / soil #3B322C */
+
+:root {
+  --paper: #f7f7f1;
+  --ink: #24211e;
+  --ink-soft: #55504a;
+  --leaf: #8dbe8d;
+  --leaf-deep: #3d6247;
+  --trunk: #8a7a70;
+  --soil: #3b322c;
+  --soil-text: #cfc6bc;
+  --line: #e3e1d6;
+  --card: #ffffff;
+  --font-display: "Gowun Dodum", "Pretendard Variable", sans-serif;
+  --font-body: "Pretendard Variable", Pretendard, -apple-system, "Segoe UI",
+    "Malgun Gothic", sans-serif;
+  --font-accent: "Caveat", cursive;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.75;
+  font-size: 17px;
+  word-break: keep-all;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: var(--leaf-deep); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--leaf-deep);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.wrap { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+/* ---------- header ---------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(247, 247, 241, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand img { height: 34px; width: auto; }
+
+.site-nav { display: flex; gap: 28px; font-size: 15px; }
+.site-nav a { color: var(--ink-soft); }
+.site-nav a:hover { color: var(--leaf-deep); text-decoration: none; }
+
+/* ---------- hero (canopy) ---------- */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 110px 0 130px;
+  text-align: center;
+}
+
+.hero .eyebrow {
+  font-family: var(--font-accent);
+  font-size: 30px;
+  color: var(--trunk);
+  letter-spacing: 0.02em;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(30px, 5.2vw, 52px);
+  line-height: 1.42;
+  margin: 18px auto 26px;
+  max-width: 21em;
+  text-wrap: balance;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--leaf-deep);
+}
+
+.hero p {
+  max-width: 34em;
+  margin: 0 auto 42px;
+  color: var(--ink-soft);
+  text-wrap: balance;
+}
+
+.hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+.btn {
+  display: inline-block;
+  padding: 13px 30px;
+  border-radius: 999px;
+  font-size: 16px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn:hover { text-decoration: none; transform: translateY(-2px); }
+.btn-primary {
+  background: var(--leaf-deep);
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(61, 98, 71, 0.28);
+}
+.btn-ghost {
+  border: 1.5px solid var(--trunk);
+  color: var(--ink);
+}
+
+/* drifting leaves */
+.leaf-float {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  color: var(--leaf);
+  opacity: 0.55;
+  animation: drift 16s ease-in-out infinite;
+  pointer-events: none;
+}
+.leaf-float.small { width: 22px; height: 22px; opacity: 0.4; }
+.leaf-float.dark { color: var(--leaf-deep); opacity: 0.3; }
+
+@keyframes drift {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  25%  { transform: translate(14px, -18px) rotate(10deg); }
+  50%  { transform: translate(-8px, -30px) rotate(-6deg); }
+  75%  { transform: translate(-16px, -12px) rotate(6deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .leaf-float { animation: none; }
+  .btn { transition: none; }
+}
+
+/* ---------- sections ---------- */
+
+.section { padding: 88px 0; }
+.section + .section { border-top: 1px solid var(--line); }
+
+.section-head { margin-bottom: 44px; }
+
+.section-head .leaf-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  letter-spacing: 0.14em;
+  color: var(--leaf-deep);
+  text-transform: uppercase;
+}
+.section-head .leaf-mark svg { width: 16px; height: 16px; }
+
+.section-head h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(24px, 3.4vw, 34px);
+  margin-top: 12px;
+  text-wrap: balance;
+}
+
+h3 { text-wrap: balance; }
+
+/* avoid a single orphan word on the last line of paragraphs */
+p { text-wrap: pretty; }
+
+/* keep a phrase together: line breaks land between phrases, not inside them */
+.phrase { display: inline-block; }
+
+.prose p + p { margin-top: 1em; }
+.prose { max-width: 44em; color: var(--ink-soft); }
+.prose strong { color: var(--ink); }
+
+/* services cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 30px 26px;
+}
+.card svg { width: 30px; height: 30px; color: var(--leaf); margin-bottom: 16px; }
+.card h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.card p { font-size: 15.5px; color: var(--ink-soft); }
+
+@media (max-width: 760px) {
+  .cards { grid-template-columns: 1fr; }
+  .hero { padding: 80px 0 96px; }
+  .section { padding: 64px 0; }
+  .site-nav { gap: 18px; font-size: 14px; }
+}
+
+@media (max-width: 480px) {
+  .wrap { padding: 0 16px; }
+  .brand img { height: 26px; }
+  .site-nav { gap: 13px; font-size: 13px; }
+  /* narrow screens: drop the manual line break and let balance wrap the headline */
+  .hero h1 br { display: none; }
+}
+
+/* apps: coming soon */
+.coming-soon {
+  border: 1.5px dashed var(--trunk);
+  border-radius: 14px;
+  padding: 48px 32px;
+  text-align: center;
+  color: var(--ink-soft);
+}
+.coming-soon .sprout { font-size: 34px; line-height: 1; }
+.coming-soon p { max-width: 30em; margin: 0 auto; text-wrap: balance; }
+.coming-soon h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 21px;
+  color: var(--ink);
+  margin: 14px 0 8px;
+}
+
+/* contact */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.contact-item {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 24px 26px;
+}
+.contact-item .label {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--trunk);
+  margin-bottom: 6px;
+}
+.contact-item .value { font-size: 17px; }
+.contact-item .value .en {
+  display: block;
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin-top: 4px;
+}
+@media (max-width: 640px) { .contact-grid { grid-template-columns: 1fr; } }
+
+/* ---------- footer (soil) ---------- */
+
+.site-footer {
+  background: var(--soil);
+  color: var(--soil-text);
+  padding: 56px 0 44px;
+  font-size: 14.5px;
+  line-height: 1.9;
+}
+.site-footer a { color: #b9d3b9; }
+.site-footer .brand-line {
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: #f0ebe4;
+  margin-bottom: 14px;
+}
+.site-footer .legal { margin-bottom: 18px; }
+.site-footer .links { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 18px; }
+.site-footer .copyright { font-size: 13px; opacity: 0.7; }
+
+/* ---------- sub pages (privacy / support) ---------- */
+
+.page { padding: 72px 0 96px; }
+.page h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(26px, 4vw, 36px);
+  margin-bottom: 8px;
+}
+.page .updated { color: var(--trunk); font-size: 14px; margin-bottom: 40px; }
+.page h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 21px;
+  margin: 44px 0 12px;
+  color: var(--leaf-deep);
+}
+.page ul { padding-left: 1.3em; margin: 0.6em 0 1.1em; }
+.page ul:last-child { margin-bottom: 0; }
+.faq-q { display: block; margin-bottom: 0.3em; }
+.page .note {
+  background: #eef2e8;
+  border-left: 3px solid var(--leaf);
+  border-radius: 0 10px 10px 0;
+  padding: 16px 20px;
+  margin: 20px 0;
+  font-size: 15px;
+  color: var(--ink-soft);
+}

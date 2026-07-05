@@ -1,0 +1,4 @@
+# neureps Inc. — app-ads.txt
+# 애드몹 가입 후 AdMob 콘솔(앱 → app-ads.txt 설정)에서 발급되는 판매자 정보 한 줄을
+# 아래에 추가하세요. 형식 예시:
+# google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0

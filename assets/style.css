@@ -67,9 +67,33 @@ button:focus-visible {
 .brand { display: flex; align-items: center; gap: 10px; }
 .brand img { height: 34px; width: auto; }
 
-.site-nav { display: flex; gap: 28px; font-size: 15px; }
+.site-nav { display: flex; gap: 28px; font-size: 15px; margin-left: auto; }
 .site-nav a { color: var(--ink-soft); }
 .site-nav a:hover { color: var(--leaf-deep); text-decoration: none; }
+
+/* language switcher */
+.lang-switch {
+  display: flex;
+  align-items: center;
+  margin-left: 24px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  font-size: 13px;
+  line-height: 1;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.lang-switch a {
+  color: var(--ink-soft);
+  padding: 7px 13px;
+}
+.lang-switch a:hover { text-decoration: none; color: var(--leaf-deep); }
+.lang-switch a.active {
+  background: var(--leaf-deep);
+  color: #fff;
+  pointer-events: none;
+}
 
 /* ---------- hero (canopy) ---------- */
 
@@ -220,12 +244,16 @@ p { text-wrap: pretty; }
   .hero { padding: 80px 0 96px; }
   .section { padding: 64px 0; }
   .site-nav { gap: 18px; font-size: 14px; }
+  .lang-switch { margin-left: 14px; font-size: 12px; }
+  .lang-switch a { padding: 6px 10px; }
 }
 
 @media (max-width: 480px) {
   .wrap { padding: 0 16px; }
   .brand img { height: 26px; }
   .site-nav { gap: 13px; font-size: 13px; }
+  .lang-switch { margin-left: 10px; }
+  .lang-switch a { padding: 5px 8px; }
   /* narrow screens: drop the manual line break and let balance wrap the headline */
   .hero h1 br { display: none; }
 }

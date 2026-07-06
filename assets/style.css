@@ -248,11 +248,29 @@ p { text-wrap: pretty; }
   .lang-switch a { padding: 6px 10px; }
 }
 
+/* narrow screens: header becomes two rows —
+   brand + language switch on top, nav centered below */
+@media (max-width: 660px) {
+  .site-header .wrap {
+    flex-wrap: wrap;
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    row-gap: 8px;
+  }
+  .lang-switch { margin-left: auto; }
+  .site-nav {
+    order: 3;
+    width: 100%;
+    margin-left: 0;
+    justify-content: center;
+  }
+}
+
 @media (max-width: 480px) {
   .wrap { padding: 0 16px; }
   .brand img { height: 26px; }
   .site-nav { gap: 13px; font-size: 13px; }
-  .lang-switch { margin-left: 10px; }
   .lang-switch a { padding: 5px 8px; }
   /* narrow screens: drop the manual line break and let balance wrap the headline */
   .hero h1 br { display: none; }

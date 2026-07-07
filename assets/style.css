@@ -17,6 +17,13 @@
   --font-body: "Pretendard Variable", Pretendard, -apple-system, "Segoe UI",
     "Malgun Gothic", sans-serif;
   --font-accent: "Caveat", cursive;
+  --display-weight: 400;
+}
+
+/* English pages: rounded Latin display font matching Gowun Dodum's warmth */
+html[lang="en"] {
+  --font-display: "Quicksand", "Gowun Dodum", "Pretendard Variable", sans-serif;
+  --display-weight: 500;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -65,7 +72,7 @@ button:focus-visible {
 }
 
 .brand { display: flex; align-items: center; gap: 10px; }
-.brand img { height: 34px; width: auto; }
+.brand img { height: 38px; width: auto; }
 
 .site-nav { display: flex; gap: 28px; font-size: 15px; margin-left: auto; }
 .site-nav a { color: var(--ink-soft); }
@@ -113,7 +120,7 @@ button:focus-visible {
 
 .hero h1 {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: var(--display-weight);
   font-size: clamp(30px, 5.2vw, 52px);
   line-height: 1.42;
   margin: 18px auto 26px;
@@ -200,7 +207,7 @@ button:focus-visible {
 
 .section-head h2 {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: var(--display-weight);
   font-size: clamp(24px, 3.4vw, 34px);
   margin-top: 12px;
   text-wrap: balance;
@@ -233,7 +240,7 @@ p { text-wrap: pretty; }
 .card svg { width: 30px; height: 30px; color: var(--leaf); margin-bottom: 16px; }
 .card h3 {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: var(--display-weight);
   font-size: 20px;
   margin-bottom: 10px;
 }
@@ -248,29 +255,96 @@ p { text-wrap: pretty; }
   .lang-switch a { padding: 6px 10px; }
 }
 
-/* narrow screens: header becomes two rows —
-   brand + language switch on top, nav centered below */
+/* hamburger button — hidden on desktop */
+.nav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  margin-left: 8px;
+  border: none;
+  background: none;
+  color: var(--ink);
+  cursor: pointer;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+.nav-toggle svg { width: 22px; height: 22px; }
+.nav-toggle .ic-close { display: none; }
+.site-header.nav-open .nav-toggle .ic-menu { display: none; }
+.site-header.nav-open .nav-toggle .ic-close { display: block; }
+
+/* narrow screens: single row (brand + language switch + hamburger),
+   nav becomes a drawer sliding in from the right */
 @media (max-width: 660px) {
-  .site-header .wrap {
-    flex-wrap: wrap;
-    height: auto;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    row-gap: 8px;
-  }
+  .nav-toggle { display: inline-flex; }
   .lang-switch { margin-left: auto; }
+
+  /* backdrop-filter turns the header into the containing block for
+     fixed descendants, which would trap the drawer inside it */
+  .site-header { backdrop-filter: none; }
+
   .site-nav {
-    order: 3;
-    width: 100%;
+    position: fixed;
+    top: 64px;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    width: min(72vw, 300px);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
     margin-left: 0;
-    justify-content: center;
+    padding: 14px 0;
+    font-size: 15px;
+    background: var(--paper);
+    border-left: 1px solid var(--line);
+    box-shadow: -14px 0 32px rgba(36, 33, 30, 0.1);
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform 0.3s ease, visibility 0s linear 0.3s;
+  }
+  .site-header.nav-open .site-nav {
+    transform: translateX(0);
+    visibility: visible;
+    transition: transform 0.3s ease;
+  }
+  .site-nav a { padding: 14px 28px; font-size: 15px; }
+
+  /* dimmed backdrop behind the drawer */
+  .site-header::after {
+    content: "";
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background: rgba(36, 33, 30, 0.22);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+  }
+  .site-header.nav-open::after {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease;
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .site-nav, .site-header::after { transition: none; }
+}
+
+/* while the window is being resized (class set from JS), suppress the
+   drawer transition so crossing the breakpoint doesn't play a slide */
+html.resizing .site-nav,
+html.resizing .site-header::after { transition: none !important; }
+
 @media (max-width: 480px) {
   .wrap { padding: 0 16px; }
-  .brand img { height: 26px; }
-  .site-nav { gap: 13px; font-size: 13px; }
+  .brand img { height: 30px; }
   .lang-switch a { padding: 5px 8px; }
   /* narrow screens: drop the manual line break and let balance wrap the headline */
   .hero h1 br { display: none; }
@@ -288,7 +362,7 @@ p { text-wrap: pretty; }
 .coming-soon p { max-width: 30em; margin: 0 auto; text-wrap: balance; }
 .coming-soon h3 {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: var(--display-weight);
   font-size: 21px;
   color: var(--ink);
   margin: 14px 0 8px;
@@ -347,14 +421,14 @@ p { text-wrap: pretty; }
 .page { padding: 72px 0 96px; }
 .page h1 {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: var(--display-weight);
   font-size: clamp(26px, 4vw, 36px);
   margin-bottom: 8px;
 }
 .page .updated { color: var(--trunk); font-size: 14px; margin-bottom: 40px; }
 .page h2 {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: var(--display-weight);
   font-size: 21px;
   margin: 44px 0 12px;
   color: var(--leaf-deep);

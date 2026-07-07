@@ -35,6 +35,54 @@
     if (link) write(localStorage, KEY, link.getAttribute('data-lang'));
   });
 
+  // mobile hamburger menu (drawer)
+  function closeDrawer(header) {
+    header.classList.remove('nav-open');
+    var toggle = header.querySelector('.nav-toggle');
+    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+  }
+
+  document.addEventListener('click', function (e) {
+    if (!e.target || !e.target.closest) return;
+    var header = document.querySelector('.site-header');
+    if (!header) return;
+    var btn = e.target.closest('.nav-toggle');
+    if (btn) {
+      var open = header.classList.toggle('nav-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      return;
+    }
+    // close after picking a menu item, tapping the dimmed backdrop
+    // (the header's ::after, so the event targets the header itself),
+    // or tapping anywhere outside the header
+    if (header.classList.contains('nav-open') &&
+        (e.target === header || e.target.closest('.site-nav a') ||
+         !e.target.closest('.site-header'))) {
+      closeDrawer(header);
+    }
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    var header = document.querySelector('.site-header.nav-open');
+    if (header) closeDrawer(header);
+  });
+
+  // suppress the drawer transition while resizing across the breakpoint,
+  // and drop the open state when leaving mobile layout
+  var resizeTimer = null;
+  window.addEventListener('resize', function () {
+    document.documentElement.classList.add('resizing');
+    if (resizeTimer) clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () {
+      document.documentElement.classList.remove('resizing');
+    }, 150);
+    if (window.innerWidth > 660) {
+      var header = document.querySelector('.site-header.nav-open');
+      if (header) closeDrawer(header);
+    }
+  });
+
   var chosen = read(localStorage, KEY);
   if (chosen) { go(chosen); return; }
 

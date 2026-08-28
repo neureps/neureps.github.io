@@ -11,8 +11,6 @@
   try { sessionStorage.setItem(key, next); } catch (error) {}
 
   banners.forEach(function (banner) {
-    var image = banner.querySelector('img');
-    if (image) image.src = '/assets/warmly/warmly-banner-0' + next + '-952x250.png';
     banner.setAttribute('data-banner-variant', next);
   });
 })();

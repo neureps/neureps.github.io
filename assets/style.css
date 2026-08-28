@@ -367,6 +367,16 @@ html.resizing .site-header::after { transition: none !important; }
   color: var(--ink);
   margin: 14px 0 8px;
 }
+.second-app-teaser {
+  margin-top: 24px;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(143, 184, 94, .12), transparent 58%),
+    rgba(255, 255, 255, .34);
+}
+
+@media (max-width: 640px) {
+  .second-app-teaser { margin-top: 18px; padding: 38px 20px; }
+}
 
 /* ---------- Warmly home banner ---------- */
 
@@ -389,80 +399,195 @@ html.resizing .site-header::after { transition: none !important; }
 .warmly-home-banner {
   position: relative;
   display: block;
+  height: 250px;
   overflow: hidden;
   border: 1px solid #ded8ca;
   border-radius: 15px;
   background: #f7f7f1;
   box-shadow: 0 12px 34px rgba(59, 50, 44, 0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #2b271f;
+  isolation: isolate;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color .2s ease;
 }
 .warmly-home-banner:hover {
   text-decoration: none;
   transform: translateY(-2px);
   box-shadow: 0 16px 40px rgba(59, 50, 44, 0.13);
 }
-.warmly-home-banner img { width: 100%; height: auto; }
-.warmly-home-banner-cue {
+.warmly-home-banner[data-banner-variant="3"] { background: #eff4eb; }
+.warmly-home-banner:focus-visible { outline: 3px solid var(--leaf-deep); outline-offset: 4px; }
+
+.warmly-home-banner-copy {
   position: absolute;
-  left: 32px;
-  bottom: 22px;
+  inset: 0;
+  z-index: 3;
+  width: 49%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 24px 32px;
+  line-height: 1.25;
+}
+.warmly-home-banner[data-banner-variant="3"] .warmly-home-banner-copy { width: 50%; }
+.warmly-banner-brand {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 18px;
+  white-space: nowrap;
+  line-height: 1;
+  transform: translateY(1px);
+}
+.warmly-banner-brand b {
+  font-family: "WantedSansWarmly", sans-serif;
+  font-size: 29px;
+  font-style: normal;
+  font-weight: 600;
+}
+.warmly-banner-brand i {
+  font-family: "LobsterTwoWarmly", cursive;
+  font-size: 30px;
+  font-style: italic;
+  font-weight: 700;
+}
+.warmly-home-banner-copy > strong {
+  max-width: 490px;
+  font-family: "WantedSansWarmly", var(--font-body);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -.02em;
+  white-space: nowrap;
+  transform: translateY(5px);
+}
+.warmly-home-banner-copy > small {
+  max-width: 480px;
+  margin: 11px 0 20px;
+  color: #6d685e;
+  font-size: 15px;
+  line-height: 1.5;
+  white-space: nowrap;
+  transform: translateY(4px);
+}
+.warmly-home-banner-cue {
   display: inline-flex;
   align-items: center;
   gap: 7px;
   min-height: 34px;
-  padding: 0 15px;
+  padding: 7px 16px;
   border-radius: 999px;
   background: #97750f;
   color: #fff;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 600;
+  line-height: 1;
   box-shadow: 0 5px 14px rgba(82, 62, 10, 0.16);
+  transform: translateY(2px);
 }
-.warmly-home-banner[data-banner-variant="2"] .warmly-home-banner-cue { opacity: 0; }
-.warmly-home-banner:not(.is-en)[data-banner-variant="3"] .warmly-home-banner-cue {
-  left: clamp(112px, 24%, 205px);
-  bottom: 18px;
+.warmly-home-banner[data-banner-variant="3"] .warmly-home-banner-cue { display: none; }
+.warmly-banner-mini-faces {
+  display: none;
+  align-items: center;
+  margin-left: 2px;
 }
-.warmly-home-banner:focus-visible { outline: 3px solid var(--leaf-deep); outline-offset: 4px; }
-
-.warmly-home-banner.is-en::after {
-  content: "";
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 48%;
-  background: linear-gradient(90deg, #f7f7f1 0%, #f7f7f1 88%, rgba(247,247,241,0) 100%);
+.warmly-home-banner[data-banner-variant="3"] .warmly-banner-mini-faces { display: flex; }
+.warmly-banner-mini-faces img {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 auto;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(36,33,30,.13);
 }
-.warmly-home-banner.is-en[data-banner-variant="3"]::after { background: linear-gradient(90deg, #eff4eb 0%, #eff4eb 88%, rgba(239,244,235,0) 100%); }
-.warmly-home-banner-en-copy {
+.warmly-banner-mini-faces img + img { margin-left: -8px; }
+.warmly-home-banner-visual {
   position: absolute;
   z-index: 1;
-  left: 32px;
-  top: 28px;
-  display: grid;
-  width: 43%;
-  color: #2b271f;
-  line-height: 1.25;
+  inset: 0 0 0 41%;
+  overflow: hidden;
 }
-.warmly-home-banner-en-copy .warmly-mini-brand { display: flex; align-items: baseline; gap: 9px; margin-bottom: 10px; }
-.warmly-mini-brand b { font-family: "LobsterTwoWarmly", cursive; font-size: 30px; }
-.warmly-mini-brand i { font-family: "WantedSansWarmly", sans-serif; font-size: 25px; font-style: normal; }
-.warmly-home-banner-en-copy strong { font-size: 20px; }
-.warmly-home-banner-en-copy small { margin-top: 7px; color: #6d685e; font-size: 12px; }
-.warmly-home-banner.is-en .warmly-home-banner-cue { z-index: 2; left: 32px; bottom: 24px; }
-.warmly-home-banner.is-en[data-banner-variant="2"] .warmly-home-banner-cue { opacity: 1; }
+.warmly-home-banner[data-banner-variant="3"] .warmly-home-banner-visual { left: 47%; }
+.warmly-home-banner-visual::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: 0 auto 0 -15%;
+  width: 40%;
+  background: linear-gradient(90deg, #f7f7f1 0%, rgba(247,247,241,.9) 24%, rgba(247,247,241,0) 100%);
+  pointer-events: none;
+}
+.warmly-home-banner[data-banner-variant="3"] .warmly-home-banner-visual::before {
+  background: linear-gradient(90deg, #eff4eb 0%, rgba(239,244,235,.94) 22%, rgba(239,244,235,0) 100%);
+}
+.warmly-banner-scene {
+  position: absolute;
+  inset: 0;
+  display: block;
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+.warmly-banner-scene > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.warmly-banner-scene-friends > img { object-position: center 48%; }
+.warmly-banner-scene-reactions > img { object-position: center 54%; }
+.warmly-home-banner[data-banner-variant="2"] .warmly-banner-scene-friends,
+.warmly-home-banner[data-banner-variant="3"] .warmly-banner-scene-reactions { opacity: 1; }
+
+.warmly-banner-reply {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 42px;
+  padding: 5px 14px 5px 6px;
+  border: 1px solid rgba(222,216,202,.8);
+  border-radius: 999px;
+  background: rgba(255,255,255,.94);
+  color: #403a32;
+  box-shadow: 0 7px 18px rgba(45,49,45,.12);
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.warmly-banner-reply img { width: 30px; height: 30px; border-radius: 50%; }
+.warmly-banner-reply.reply-haneul { top: 24px; right: 20px; }
+.warmly-banner-reply.reply-bomi { right: 35px; bottom: 23px; }
 
 @media (max-width: 640px) {
-  .warmly-home-banner { border-radius: 12px; }
-  .warmly-home-banner img { width: 148%; max-width: none; transform: translateX(-2%); }
-  .warmly-home-banner-cue { left: 15px; bottom: 12px; min-height: 30px; padding: 0 11px; font-size: 11px; }
-  .warmly-home-banner:not(.is-en)[data-banner-variant="3"] .warmly-home-banner-cue { left: 112px; bottom: 10px; }
-  .warmly-home-banner.is-en::after { width: 60%; }
-  .warmly-home-banner-en-copy { left: 17px; top: 16px; width: 53%; }
-  .warmly-mini-brand b { font-size: 23px; }
-  .warmly-mini-brand i { font-size: 19px; }
-  .warmly-home-banner-en-copy strong { font-size: 14px; }
-  .warmly-home-banner-en-copy small { display: none; }
-  .warmly-home-banner.is-en .warmly-home-banner-cue { left: 17px; bottom: 12px; }
+  .warmly-home-banner { height: 220px; border-radius: 12px; }
+  .warmly-home-banner-copy,
+  .warmly-home-banner[data-banner-variant="3"] .warmly-home-banner-copy {
+    width: 58%;
+    padding: 18px 16px;
+  }
+  .warmly-banner-brand { gap: 6px; margin-bottom: 5px; }
+  .warmly-banner-brand b { font-size: 23px; }
+  .warmly-banner-brand i { font-size: 24px; }
+  .warmly-home-banner-copy > strong { max-width: 210px; font-size: 15px; line-height: 1.35; white-space: normal; }
+  .warmly-home-banner-copy > small {
+    max-width: 170px;
+    margin: 7px 0 11px;
+    font-size: 10.5px;
+    white-space: normal;
+  }
+  .warmly-home-banner-cue { min-height: 29px; padding: 6px 11px; font-size: 10.5px; }
+  .warmly-banner-mini-faces img { width: 27px; height: 27px; }
+  .warmly-banner-mini-faces img + img { margin-left: -7px; }
+  .warmly-home-banner-visual { left: 43%; }
+  .warmly-home-banner[data-banner-variant="3"] .warmly-home-banner-visual { left: 47%; }
+  .warmly-home-banner-visual::before { left: -18%; width: 48%; }
+  .warmly-banner-scene-friends > img { object-position: 42% center; }
+  .warmly-banner-reply { min-height: 32px; gap: 4px; padding: 3px 8px 3px 4px; font-size: 8px; }
+  .warmly-banner-reply img { width: 24px; height: 24px; }
+  .warmly-banner-reply.reply-haneul { top: 17px; right: 8px; }
+  .warmly-banner-reply.reply-bomi { right: 8px; bottom: 18px; }
 }
 
 /* ---------- Warmly product page ---------- */
@@ -575,9 +700,12 @@ html[lang="en"] .warmly-hero-copy h1 { flex-direction: row; }
 .warmly-friends-section { background: #fbfaf6; }
 .warmly-friend-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 13px; }
 .warmly-friend-grid article { padding: 23px 13px 21px; border: 1px solid #e8e3d9; border-radius: 20px; background: #fff; text-align: center; }
+.warmly-friend-grid article.friend-premium { border-color: #e3d39d; background: #fffdf6; }
 .warmly-friend-grid img { width: 96px; height: 96px; margin: 0 auto 13px; border-radius: 50%; }
 .warmly-friend-grid h3 { font-family: var(--font-display); font-weight: var(--display-weight); font-size: 20px; }
 .warmly-friend-grid p { margin-top: 7px; color: var(--ink-soft); font-size: 13px; line-height: 1.55; }
+.warmly-friend-access { display: inline-flex; align-items: center; justify-content: center; margin-top: 11px; padding: 5px 9px; border-radius: 999px; background: #f7edce; color: #795d0d; font-size: 11px; font-weight: 700; line-height: 1.35; }
+.warmly-friend-note { max-width: 720px; margin: 18px auto 0; color: var(--ink-soft); font-size: 13px; line-height: 1.65; text-align: center; }
 
 .warmly-reaction-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 68px; align-items: center; }
 .warmly-reaction-photo { position: relative; overflow: hidden; border-radius: 28px; box-shadow: 0 20px 54px rgba(37,54,95,.13); }

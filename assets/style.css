@@ -419,6 +419,10 @@ html.resizing .site-header::after { transition: none !important; }
   box-shadow: 0 5px 14px rgba(82, 62, 10, 0.16);
 }
 .warmly-home-banner[data-banner-variant="2"] .warmly-home-banner-cue { opacity: 0; }
+.warmly-home-banner:not(.is-en)[data-banner-variant="3"] .warmly-home-banner-cue {
+  left: clamp(112px, 24%, 205px);
+  bottom: 18px;
+}
 .warmly-home-banner:focus-visible { outline: 3px solid var(--leaf-deep); outline-offset: 4px; }
 
 .warmly-home-banner.is-en::after {
@@ -451,6 +455,7 @@ html.resizing .site-header::after { transition: none !important; }
   .warmly-home-banner { border-radius: 12px; }
   .warmly-home-banner img { width: 148%; max-width: none; transform: translateX(-2%); }
   .warmly-home-banner-cue { left: 15px; bottom: 12px; min-height: 30px; padding: 0 11px; font-size: 11px; }
+  .warmly-home-banner:not(.is-en)[data-banner-variant="3"] .warmly-home-banner-cue { left: 112px; bottom: 10px; }
   .warmly-home-banner.is-en::after { width: 60%; }
   .warmly-home-banner-en-copy { left: 17px; top: 16px; width: 53%; }
   .warmly-mini-brand b { font-size: 23px; }

@@ -649,42 +649,26 @@ html[lang="en"] .warmly-hero-copy h1 { flex-direction: row; }
 .warmly-trust-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; color: #777065; font-size: 13px; }
 .warmly-trust-row span { padding: 5px 10px; border: 1px solid #dfd9cc; border-radius: 999px; background: rgba(255,255,255,.58); }
 
-.warmly-device-showcase { position: relative; min-height: 650px; display: grid; place-items: center; }
+.warmly-device-showcase { position: relative; min-height: 720px; display: grid; place-items: center; }
 .warmly-glow { position: absolute; width: 620px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(239,198,106,.45), rgba(239,198,106,.11) 50%, transparent 72%); filter: blur(8px); }
-.warmly-phone {
+.warmly-screen-frame {
   position: relative;
   z-index: 1;
-  width: 338px;
-  min-height: 614px;
-  padding: 28px 14px 22px;
-  border: 8px solid #201f1c;
-  border-radius: 46px;
+  width: min(100%, 350px);
+  overflow: hidden;
+  border-radius: 17.7% / 8.5%;
   background: #fff;
-  box-shadow: 0 30px 70px rgba(40,34,24,.22);
+  box-shadow: 0 30px 72px rgba(40,34,24,.24), 0 8px 24px rgba(40,34,24,.12);
 }
-.warmly-phone::before { content: ""; position: absolute; top: 10px; left: 50%; width: 82px; height: 20px; border-radius: 99px; background: #201f1c; transform: translateX(-50%); }
-.warmly-phone-header { display: flex; align-items: center; justify-content: space-between; height: 58px; padding: 0 8px; }
-.warmly-phone-header .warmly-ko-logo { font-size: 27px; }
-.warmly-phone-header .warmly-en-logo { font-size: 30px; }
-.warmly-phone-header b { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 13px; background: #f7d995; font-size: 25px; font-weight: 400; box-shadow: 0 5px 13px rgba(151,117,15,.18); }
-.warmly-post-head { display: grid; grid-template-columns: 34px 1fr auto; align-items: center; gap: 8px; padding: 10px 4px 8px; font-size: 12px; color: #777065; }
-.warmly-post-head strong { color: #2e2b26; font-size: 13px; }
-.warmly-post-head small { margin-left: 4px; color: #918a7e; font-weight: 400; }
-.warmly-me { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: #d6d2cc; color: #fff; font-weight: 700; }
-.warmly-photo-wrap { position: relative; overflow: hidden; aspect-ratio: 1; border-radius: 17px; }
-.warmly-photo-wrap > img { width: 100%; height: 100%; object-fit: cover; }
-.warmly-reactor-stack { position: absolute; left: 12px; bottom: 12px; display: flex; align-items: center; padding: 4px 9px 4px 5px; border-radius: 999px; background: rgba(22,24,23,.72); color: #fff; font-size: 11px; }
-.warmly-reactor-stack img { width: 30px; height: 30px; margin-right: -6px; border: 2px solid #fff; border-radius: 50%; }
-.warmly-reactor-stack span { margin-left: 10px; }
-.warmly-actions { display: flex; gap: 17px; align-items: center; padding: 12px 5px 8px; font-size: 18px; line-height: 1; }
-.warmly-actions .invite { margin-left: auto; color: var(--warmly-amber-deep); }
-.warmly-comment { display: grid; grid-template-columns: 38px 1fr; gap: 9px; align-items: start; padding: 3px 4px; font-size: 12px; line-height: 1.45; }
-.warmly-comment img { width: 38px; height: 38px; border-radius: 50%; }
-.warmly-all-comments { margin: 4px 0 0 51px; color: #989084; font-size: 11px; }
-.warmly-floating-friend { position: absolute; z-index: 2; display: flex; align-items: center; gap: 8px; max-width: 250px; padding: 9px 12px 9px 8px; border: 1px solid rgba(225,218,204,.9); border-radius: 999px; background: rgba(255,255,255,.94); box-shadow: 0 12px 32px rgba(50,42,30,.13); font-size: 11px; line-height: 1.35; }
+.warmly-screen-frame-ko { aspect-ratio: 1151 / 2408; }
+.warmly-screen-frame-en { aspect-ratio: 1150 / 2408; }
+.warmly-screen-shot { position: absolute; display: block; max-width: none; height: auto; }
+.warmly-screen-frame-ko .warmly-screen-shot { top: -9.967%; left: -6.864%; width: 113.814%; }
+.warmly-screen-frame-en .warmly-screen-shot { top: -9.178%; left: -7.130%; width: 113.913%; }
+.warmly-floating-friend { position: absolute; z-index: 2; display: flex; align-items: center; gap: 8px; max-width: 290px; padding: 9px 12px 9px 8px; border: 1px solid rgba(225,218,204,.9); border-radius: 22px; background: rgba(255,255,255,.95); box-shadow: 0 12px 32px rgba(50,42,30,.15); font-size: 11.5px; line-height: 1.4; }
 .warmly-floating-friend img { width: 35px; height: 35px; border-radius: 50%; flex: 0 0 auto; }
-.friend-bomi { top: 100px; right: -6px; }
-.friend-louie { left: -18px; bottom: 74px; }
+.friend-bomi { top: 128px; right: -4px; }
+.friend-louie { left: -14px; bottom: 92px; }
 
 .warmly-section { padding: 104px 0; border-bottom: 1px solid var(--line); background: #fff; }
 .warmly-section-head { margin-bottom: 38px; }
@@ -742,7 +726,7 @@ html[lang="en"] .warmly-hero-copy h1 { flex-direction: row; }
   .warmly-hero-copy { max-width: 650px; text-align: center; margin: 0 auto; }
   .warmly-hero-copy h1, .warmly-hero-actions, .warmly-trust-row { justify-content: center; }
   .warmly-lead { margin-left: auto; margin-right: auto; }
-  .warmly-device-showcase { min-height: 650px; max-width: 600px; width: 100%; margin: 0 auto; }
+  .warmly-device-showcase { min-height: 720px; max-width: 600px; width: 100%; margin: 0 auto; }
   .warmly-feature-grid { grid-template-columns: 1fr; }
   .warmly-feature-grid article { min-height: 0; }
   .warmly-feature-grid h3 { margin-top: 24px; }
@@ -758,10 +742,10 @@ html[lang="en"] .warmly-hero-copy h1 { flex-direction: row; }
   .warmly-hero-copy h1 .warmly-ko-logo { font-size: 39px; }
   .warmly-hero-copy h1 .warmly-en-logo { font-size: 43px; }
   .warmly-hero-copy h2 { font-size: 34px; }
-  .warmly-device-showcase { min-height: 590px; transform: scale(.88); margin-top: -36px; margin-bottom: -36px; }
-  .warmly-phone { width: 326px; }
-  .friend-bomi { right: -12px; }
-  .friend-louie { left: -12px; }
+  .warmly-device-showcase { min-height: 670px; }
+  .warmly-screen-frame { width: min(100%, 326px); }
+  .friend-bomi { right: -10px; }
+  .friend-louie { left: -10px; }
   .warmly-section { padding: 76px 0; }
   .warmly-friend-grid { grid-template-columns: 1fr 1fr; }
   .warmly-friend-grid article:last-child { grid-column: 1 / -1; width: calc(50% - 7px); justify-self: center; }
@@ -770,8 +754,9 @@ html[lang="en"] .warmly-hero-copy h1 { flex-direction: row; }
 }
 
 @media (max-width: 390px) {
-  .warmly-device-showcase { transform: scale(.78); margin: -60px -20px; width: calc(100% + 40px); }
-  .warmly-floating-friend { max-width: 220px; }
+  .warmly-device-showcase { min-height: 620px; }
+  .warmly-screen-frame { width: min(100%, 300px); }
+  .warmly-floating-friend { max-width: 225px; font-size: 11px; }
   .warmly-friend-grid p { font-size: 12px; }
 }
 

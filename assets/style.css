@@ -433,12 +433,20 @@ html.resizing .site-header::after { transition: none !important; }
 .warmly-home-banner[data-banner-variant="3"] .warmly-home-banner-copy { width: 50%; }
 .warmly-banner-brand {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 10px;
   margin-bottom: 18px;
   white-space: nowrap;
   line-height: 1;
   transform: translateY(1px);
+}
+.warmly-banner-icon {
+  width: 50px;
+  height: 50px;
+  flex: 0 0 auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 7px rgba(64, 51, 29, .12));
+  transform: translateY(-3px);
 }
 .warmly-banner-brand b {
   font-family: "WantedSansWarmly", sans-serif;
@@ -568,6 +576,7 @@ html.resizing .site-header::after { transition: none !important; }
     padding: 18px 16px;
   }
   .warmly-banner-brand { gap: 6px; margin-bottom: 5px; }
+  .warmly-banner-icon { width: 38px; height: 38px; }
   .warmly-banner-brand b { font-size: 23px; }
   .warmly-banner-brand i { font-size: 24px; }
   .warmly-home-banner-copy > strong { max-width: 210px; font-size: 15px; line-height: 1.35; white-space: normal; }
@@ -628,7 +637,15 @@ html.resizing .site-header::after { transition: none !important; }
   font-weight: 800;
   letter-spacing: .16em;
 }
-.warmly-hero-copy h1 { display: flex; align-items: baseline; gap: 14px; margin: 13px 0 26px; line-height: 1; }
+.warmly-hero-copy h1 { display: flex; align-items: center; gap: 14px; margin: 13px 0 26px; line-height: 1; }
+.warmly-title-icon {
+  width: 84px;
+  height: 84px;
+  flex: 0 0 auto;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 11px rgba(64, 51, 29, .14));
+  transform: translateY(-3px);
+}
 .warmly-ko-logo { font-family: "WantedSansWarmly", sans-serif; font-weight: 600; }
 .warmly-en-logo { font-family: "LobsterTwoWarmly", cursive; font-style: italic; font-weight: 700; }
 .warmly-hero-copy h1 .warmly-ko-logo { font-size: clamp(39px, 5vw, 58px); }
@@ -675,6 +692,14 @@ html[lang="en"] .warmly-hero-copy h1 { flex-direction: row; }
 .warmly-section-head h2 { margin-top: 10px; font-family: var(--font-display); font-weight: var(--display-weight); font-size: clamp(30px, 4.2vw, 45px); line-height: 1.32; letter-spacing: -.02em; }
 .warmly-section-head.centered { text-align: center; }
 .warmly-section-head.centered span { display: block; margin-top: 13px; color: var(--ink-soft); }
+.warmly-branded-kicker { display: flex; align-items: center; gap: 8px; }
+.warmly-branded-kicker img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  filter: drop-shadow(0 3px 5px rgba(64, 51, 29, .11));
+  transform: translateY(-1px);
+}
 .warmly-feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .warmly-feature-grid article { min-height: 240px; padding: 30px 27px; border: 1px solid #ebe4d6; border-radius: 22px; background: var(--warmly-cream); }
 .warmly-feature-grid article > span { color: var(--warmly-amber-deep); font-size: 12px; font-weight: 800; letter-spacing: .12em; }
@@ -729,6 +754,7 @@ html[lang="en"] .warmly-hero-copy h1 { flex-direction: row; }
 .warmly-arrival-grid div > p:last-child { color: var(--ink-soft); }
 
 .warmly-final-cta { padding: 112px 0; text-align: center; background: #30291f; color: #f7f3ea; }
+.warmly-final-mark { display: block; width: 78px; height: 78px; margin: 0 auto 7px; object-fit: contain; filter: drop-shadow(0 6px 11px rgba(0,0,0,.28)); }
 .warmly-final-cta .warmly-en-logo { display: inline-block; color: #efc66a; font-size: 48px; }
 .warmly-final-cta h2 { max-width: 18em; margin: 15px auto 15px; font-family: var(--font-display); font-weight: var(--display-weight); font-size: clamp(29px, 4vw, 43px); line-height: 1.4; }
 .warmly-final-cta p { color: #c9c1b6; }
@@ -748,6 +774,7 @@ html[lang="en"] .warmly-hero-copy h1 { flex-direction: row; }
   .warmly-friend-grid { grid-template-columns: repeat(3, 1fr); }
   .warmly-reaction-grid, .warmly-topic-grid, .warmly-privacy-grid, .warmly-arrival-grid { grid-template-columns: 1fr; }
   .warmly-topic-copy { text-align: center; }
+  .warmly-topic-copy .warmly-branded-kicker { justify-content: center; }
   .warmly-topic-copy > p { margin-left: auto; margin-right: auto; }
   .warmly-topic-cards { max-width: 620px; width: 100%; margin: 0 auto; }
   .warmly-reaction-photo, .warmly-privacy-grid figure, .warmly-arrival-grid > img { max-width: 620px; margin: 0 auto; }
@@ -757,6 +784,7 @@ html[lang="en"] .warmly-hero-copy h1 { flex-direction: row; }
 @media (max-width: 600px) {
   .warmly-hero { padding: 62px 0 74px; }
   .warmly-hero-copy h1 { gap: 9px; }
+  .warmly-title-icon { width: 60px; height: 60px; }
   .warmly-hero-copy h1 .warmly-ko-logo { font-size: 39px; }
   .warmly-hero-copy h1 .warmly-en-logo { font-size: 43px; }
   .warmly-hero-copy h2 { font-size: 34px; }

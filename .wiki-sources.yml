@@ -1,4 +1,4 @@
-# .wiki-sources.yml — LLM 위키(neureps/llm-wiki)가 이 리포에서 읽을 문서 선언. 소유: 이 리포.
+# .wiki-sources.yml — LLM 위키 loom(neureps/loom)가 이 리포에서 읽을 문서 선언. 소유: 이 리포.
 # 문서(*.md)를 추가·이동·개명·삭제·archive 하는 커밋에서 같이 확인·갱신한다(규칙: CLAUDE.md).
 # 우선순위: exclude > evidence > canonical. glob은 리포 루트 기준, `**`는 하위 전체.
 version: 1

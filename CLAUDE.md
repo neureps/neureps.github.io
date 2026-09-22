@@ -2,7 +2,7 @@
 
 ## LLM 위키 원천 선언 — `.wiki-sources.yml`
 
-이 리포의 문서는 조직 LLM 위키(`neureps/llm-wiki`)가 루트 [`.wiki-sources.yml`](.wiki-sources.yml)을
+이 리포의 문서는 조직 LLM 위키 loom(`neureps/loom`)가 루트 [`.wiki-sources.yml`](.wiki-sources.yml)을
 읽어 컴파일한다. 위키는 파생 계층이며 이 리포의 정본을 대체하지 않는다. 선언은 리포가
 소유한다(분산 관리) — 위키 리포는 이 리포의 내부 구조를 알지 못하고 이 파일만 믿는다.
 
@@ -15,5 +15,5 @@
 - 새 문서가 기존 glob에 이미 잡히면 파일 수정은 불필요하다. 다만 **분류가 맞는지는
   확인**한다 — 새 경위·이력·실행 기록 디렉터리가 생겼는데 `evidence`에 없으면 추가하고,
   완료·기각 문서는 `archive/` 아래로 옮겨 `exclude`에 걸리게 한다.
-- 확인 명령: `python3 <llm-wiki 클론>/tooling/wiki-sources-check.py` — 분류 집계를 내고,
+- 확인 명령: `python3 <loom 클론>/tooling/wiki-sources-check.py` — 분류 집계를 내고,
   경위로 보이는 디렉터리가 `canonical`에 잡히면 경고한다.

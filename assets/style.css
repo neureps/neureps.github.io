@@ -759,7 +759,11 @@ html[lang="en"] .warmly-hero-copy h1 { flex-direction: row; }
 .warmly-final-cta h2 { max-width: 18em; margin: 15px auto 15px; font-family: var(--font-display); font-weight: var(--display-weight); font-size: clamp(29px, 4vw, 43px); line-height: 1.4; }
 .warmly-final-cta p { color: #c9c1b6; }
 .warmly-store-row { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin: 25px 0 20px; }
-.warmly-store-row span { padding: 10px 17px; border: 1px solid rgba(255,255,255,.23); border-radius: 999px; color: #e9e2d8; font-size: 13px; }
+.warmly-store-row { align-items: center; gap: 4px 12px; margin-bottom: 8px; }
+.warmly-store-row .store-badge { display: inline-flex; transition: transform .15s ease, opacity .15s ease; }
+.warmly-store-row .store-badge:hover { transform: translateY(-2px); opacity: .9; }
+.warmly-store-row .store-badge img { display: block; width: auto; }
+.warmly-store-note { margin: 0 0 20px; color: #e9e2d8; font-size: 13px; }
 .warmly-final-cta a { color: #f2cf7f; font-size: 14px; }
 
 @media (max-width: 900px) {

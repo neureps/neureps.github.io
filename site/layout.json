@@ -1,0 +1,34 @@
+{
+  "company": {
+    "ko": "주식회사 뉴렙스 · Neureps Inc.",
+    "en": "Neureps Inc.",
+    "address_ko": "경기도 용인시 수지구 용구대로2790번길 7, 302-J16호",
+    "address_en": "302-J16, 7 Yonggu-daero 2790beon-gil, Suji-gu, Yongin-si, Gyeonggi-do, 16866, Republic of Korea",
+    "registration": "898-86-03903",
+    "email": "contact@neureps.com",
+    "copyright": "© 2026 Neureps Inc. All rights reserved."
+  },
+  "labels": {
+    "ko": {
+      "home": "neureps 홈", "menu": "주요 메뉴", "language": "언어 선택", "toggle": "메뉴",
+      "about": "회사 소개", "services": "하는 일", "apps": "앱", "music": "뮤직", "contact": "문의",
+      "features": "주요 기능", "friends": "다섯 친구", "app_privacy": "프라이버시",
+      "series": "두 시리즈", "notes": "룸메이트 쪽지", "listen": "대표 플레이리스트", "warmly": "온기 앱",
+      "privacy": "개인정보처리방침", "support": "지원", "registration": "사업자등록번호"
+    },
+    "en": {
+      "home": "neureps home", "menu": "Main menu", "language": "Language", "toggle": "Menu",
+      "about": "About", "services": "Services", "apps": "Apps", "music": "Music", "contact": "Contact",
+      "features": "Features", "friends": "Five friends", "app_privacy": "Privacy",
+      "series": "Series", "notes": "Roommate Notes", "listen": "Featured Playlists", "warmly": "Warmly App",
+      "privacy": "Privacy Policy", "support": "Support", "registration": "Business registration no."
+    }
+  },
+  "pages": {
+    "": [["#about", "about"], ["#services", "services"], ["#apps", "apps"], ["#music", "music"], ["#contact", "contact"]],
+    "warmly": [["#features", "features"], ["#friends", "friends"], ["#privacy", "app_privacy"], ["/support/", "support"]],
+    "music": [["#series", "series"], ["#notes", "notes"], ["#listen", "listen"], ["/warmly/", "warmly"], ["/support/", "support"]],
+    "privacy": [["/#about", "about"], ["/#services", "services"], ["/support/", "support"]],
+    "support": [["/#about", "about"], ["/#services", "services"], ["/privacy/", "privacy"]]
+  }
+}

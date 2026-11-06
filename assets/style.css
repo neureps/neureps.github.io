@@ -30,6 +30,9 @@ html[lang="en"] {
 
 html { scroll-behavior: smooth; }
 
+html.nav-modal-open,
+html.nav-modal-open body { overflow: hidden; }
+
 body {
   font-family: var(--font-body);
   background: var(--paper);
@@ -1913,4 +1916,17 @@ html[lang="en"] .warmly-hero-copy h1 { flex-direction: row; }
     max-width: 320px;
     justify-content: center;
   }
+}
+
+/* Keep motion overrides after all component and open-state rules. */
+@media (prefers-reduced-motion: reduce) {
+  .eq-bar { animation: none; }
+  .site-header .site-nav, .site-header.nav-open .site-nav,
+  .site-header::after, .site-header.nav-open::after,
+  .warmly-home-banner, .warmly-banner-scene,
+  .warmly-store-row .store-badge,
+  .music-home-banner, .music-banner-scene, .music-btn-primary,
+  .music-series-card, .series-banner-art img, .series-cta-btn,
+  .video-card, .video-card-thumb img, .video-play-btn,
+  .music-final-btn { transition: none; }
 }

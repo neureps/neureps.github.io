@@ -382,7 +382,7 @@ html.resizing .site-header::after { transition: none !important; }
 
 @font-face {
   font-family: "WantedSansWarmly";
-  src: url("/assets/fonts/warmly/WantedSans-SemiBold-headings.woff2") format("woff2");
+  src: url("/assets/fonts/warmly/WantedSans-SemiBold.woff2") format("woff2");
   font-style: normal;
   font-weight: 600;
   font-display: swap;
@@ -888,4 +888,1029 @@ html[lang="en"] .warmly-hero-copy h1 { flex-direction: row; }
   margin: 20px 0;
   font-size: 15px;
   color: var(--ink-soft);
+}
+
+/* ==========================================================================
+   Neureps Music / Neurepsic styles
+   ========================================================================== */
+
+/* ---------- Music home banner on main page ---------- */
+
+.music-home-banner {
+  position: relative;
+  display: block;
+  height: 250px;
+  overflow: hidden;
+  border: 1px solid #ded8ca;
+  border-radius: 15px;
+  background: #f7f7f1;
+  box-shadow: 0 12px 34px rgba(59, 50, 44, 0.08);
+  color: #2b271f;
+  isolation: isolate;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color .2s ease;
+}
+.music-home-banner:hover {
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(59, 50, 44, 0.13);
+}
+.music-home-banner[data-banner-variant="3"] { background: #eff4eb; }
+.music-home-banner:focus-visible { outline: 3px solid var(--leaf-deep); outline-offset: 4px; }
+
+.music-home-banner-copy {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  width: 49%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 24px 32px;
+  line-height: 1.25;
+}
+.music-home-banner[data-banner-variant="3"] .music-home-banner-copy { width: 50%; }
+
+.music-banner-brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 16px;
+  white-space: nowrap;
+  line-height: 1;
+  transform: translateY(1px);
+}
+.music-banner-icon {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 auto;
+  object-fit: contain;
+  filter: drop-shadow(0 3px 6px rgba(64, 51, 29, .12));
+  transform: translateY(-1px);
+}
+.music-banner-brand b {
+  font-family: "WantedSansWarmly", sans-serif;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+}
+.music-banner-brand i {
+  font-family: "LobsterTwoWarmly", cursive;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 700;
+}
+
+.music-home-banner-copy > strong {
+  max-width: 490px;
+  font-family: "WantedSansWarmly", var(--font-body);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -.02em;
+  white-space: nowrap;
+  transform: translateY(5px);
+}
+.music-home-banner-copy > small {
+  max-width: 480px;
+  margin: 11px 0 20px;
+  color: #6d685e;
+  font-size: 15px;
+  line-height: 1.5;
+  white-space: nowrap;
+  transform: translateY(4px);
+}
+
+.music-home-banner-cue {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 34px;
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: #33593b;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  box-shadow: 0 5px 14px rgba(45, 75, 50, 0.18);
+  transform: translateY(2px);
+}
+.music-home-banner[data-banner-variant="3"] .music-home-banner-cue { display: none; }
+
+.music-banner-mini-covers {
+  display: none;
+  align-items: center;
+  margin-left: 2px;
+}
+.music-home-banner[data-banner-variant="3"] .music-banner-mini-covers { display: flex; }
+.music-banner-mini-covers img {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 auto;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(36, 33, 30, .13);
+}
+.music-banner-mini-covers img + img { margin-left: -8px; }
+
+.music-home-banner-visual {
+  position: absolute;
+  z-index: 1;
+  inset: 0 0 0 41%;
+  overflow: hidden;
+}
+.music-home-banner[data-banner-variant="3"] .music-home-banner-visual { left: 47%; }
+.music-home-banner-visual::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: 0 auto 0 -15%;
+  width: 40%;
+  background: linear-gradient(90deg, #f7f7f1 0%, rgba(247,247,241,.9) 24%, rgba(247,247,241,0) 100%);
+  pointer-events: none;
+}
+.music-home-banner[data-banner-variant="3"] .music-home-banner-visual::before {
+  background: linear-gradient(90deg, #eff4eb 0%, rgba(239,244,235,.94) 22%, rgba(239,244,235,0) 100%);
+}
+
+.music-banner-scene {
+  position: absolute;
+  inset: 0;
+  display: block;
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+.music-banner-scene > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.music-banner-scene-radio > img { object-position: center 48%; }
+.music-banner-scene-cafe > img { object-position: center 50%; }
+.music-home-banner[data-banner-variant="2"] .music-banner-scene-radio,
+.music-home-banner[data-banner-variant="3"] .music-banner-scene-cafe { opacity: 1; }
+
+.music-banner-reply {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 42px;
+  padding: 5px 14px 5px 6px;
+  border: 1px solid rgba(222, 216, 202, .8);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .94);
+  color: #403a32;
+  box-shadow: 0 7px 18px rgba(45, 49, 45, .12);
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.music-banner-reply img { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; flex: 0 0 auto; }
+.music-banner-reply.reply-radio { top: 24px; right: 20px; }
+.music-banner-reply.reply-cafe { right: 35px; bottom: 23px; }
+
+@media (max-width: 640px) {
+  .music-home-banner { height: 220px; border-radius: 12px; }
+  .music-home-banner-copy,
+  .music-home-banner[data-banner-variant="3"] .music-home-banner-copy {
+    width: 58%;
+    padding: 18px 16px;
+  }
+  .music-banner-brand { gap: 4px; margin-bottom: 5px; }
+  .music-banner-icon { width: 32px; height: 32px; }
+  .music-banner-brand b { font-size: 18px; }
+  .music-banner-brand i { font-size: 19px; }
+  .music-home-banner-copy > strong { max-width: 210px; font-size: 15px; line-height: 1.35; white-space: normal; }
+  .music-home-banner-copy > small {
+    max-width: 170px;
+    margin: 7px 0 11px;
+    font-size: 10.5px;
+    white-space: normal;
+  }
+  .music-home-banner-cue { min-height: 29px; padding: 6px 11px; font-size: 10.5px; }
+  .music-banner-mini-covers img { width: 27px; height: 27px; }
+  .music-banner-mini-covers img + img { margin-left: -7px; }
+  .music-home-banner-visual { left: 43%; }
+  .music-home-banner[data-banner-variant="3"] .music-home-banner-visual { left: 47%; }
+  .music-home-banner-visual::before { left: -18%; width: 48%; }
+  .music-banner-scene-radio > img { object-position: 42% center; }
+  .music-banner-reply { min-height: 32px; gap: 4px; padding: 3px 8px 3px 4px; font-size: 8px; }
+  .music-banner-reply img { width: 24px; height: 24px; }
+  .music-banner-reply.reply-radio { top: 17px; right: 8px; }
+  .music-banner-reply.reply-cafe { right: 8px; bottom: 18px; }
+}
+
+/* ---------- Subpage: /music/ and /en/music/ ---------- */
+
+.music-page {
+  --music-primary: #2d6b41;
+  --music-primary-hover: #225433;
+  --music-amber: #b26e1a;
+  --music-cream: #fbf8f1;
+  --music-card-border: #e6dfd1;
+  background: #fbfaf6;
+}
+.music-page .site-header {
+  background: rgba(251, 250, 246, 0.92);
+}
+
+.music-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 84px 0 96px;
+  background:
+    radial-gradient(ellipse at 86% 8%, rgba(45, 107, 65, 0.16) 0%, rgba(178, 110, 26, 0.1) 36%, transparent 68%),
+    linear-gradient(180deg, #fbfaf6 0%, #ffffff 100%);
+}
+.music-hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--line);
+}
+.music-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+  align-items: center;
+  gap: 52px;
+}
+.music-kicker {
+  color: var(--music-primary);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.music-hero-copy h1 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 12px 0 20px;
+  line-height: 1;
+}
+.music-title-icon {
+  width: 54px;
+  height: 54px;
+  flex: 0 0 auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 7px rgba(64, 51, 29, .12));
+  transform: translateY(-2px);
+}
+.music-ko-logo {
+  font-family: "WantedSansWarmly", sans-serif;
+  font-size: clamp(30px, 3.8vw, 42px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #1f1b16;
+}
+.music-en-logo {
+  font-family: "WantedSansWarmly", sans-serif;
+  font-size: clamp(30px, 3.8vw, 42px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #1f1b16;
+}
+.music-hero-copy h2 {
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  font-size: clamp(32px, 4.2vw, 48px);
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+  color: #211e19;
+  text-wrap: balance;
+}
+.music-lead {
+  max-width: 36em;
+  margin-top: 20px;
+  color: var(--ink-soft);
+  font-size: 17px;
+  line-height: 1.8;
+}
+.music-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+.music-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--music-primary);
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(45, 107, 65, 0.28);
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+.music-btn-primary:hover {
+  background: var(--music-primary-hover);
+  color: #ffffff;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+.music-trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+  color: #6d665b;
+  font-size: 13px;
+}
+.music-trust-row span {
+  padding: 5px 12px;
+  border: 1px solid var(--music-card-border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+/* Showcase vinyl / radio montage */
+.music-showcase {
+  position: relative;
+  min-height: 440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.music-showcase-card {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  background: #ffffff;
+  border: 1px solid #ded7ca;
+  border-radius: 24px;
+  padding: 16px;
+  box-shadow: 0 24px 60px rgba(59, 50, 44, 0.14);
+}
+.music-showcase-media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #1a1714;
+}
+.music-showcase-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.music-showcase-equalizer {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 18px;
+  padding: 4px 8px;
+  background: rgba(18, 16, 14, 0.7);
+  border-radius: 6px;
+  backdrop-filter: blur(4px);
+}
+.eq-bar {
+  width: 3px;
+  background: #62d888;
+  border-radius: 1px;
+}
+.eq-1 { height: 60%; animation: eqBounce 1.2s ease-in-out infinite alternate; }
+.eq-2 { height: 100%; animation: eqBounce 0.8s ease-in-out infinite alternate 0.2s; }
+.eq-3 { height: 40%; animation: eqBounce 1.4s ease-in-out infinite alternate 0.4s; }
+.eq-4 { height: 80%; animation: eqBounce 1.0s ease-in-out infinite alternate 0.1s; }
+@keyframes eqBounce {
+  0% { height: 25%; }
+  100% { height: 100%; }
+}
+
+.music-showcase-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+  padding: 0 4px;
+}
+.showcase-info-meta b {
+  display: block;
+  font-family: "WantedSansWarmly", var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  color: #211e19;
+}
+.showcase-info-meta span {
+  font-size: 12.5px;
+  color: #726b60;
+}
+.showcase-play-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--music-primary);
+  background: rgba(45, 107, 65, 0.1);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+/* Floating Roommate Note on Showcase */
+.music-showcase-note {
+  position: absolute;
+  left: -20px;
+  bottom: -22px;
+  z-index: 3;
+  width: min(100%, 280px);
+  background: #fffdf7;
+  border: 1px solid #ebd8a0;
+  border-radius: 16px;
+  padding: 14px 16px;
+  box-shadow: 0 14px 34px rgba(60, 48, 25, 0.18);
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: #3b3228;
+}
+.note-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  font-size: 13px;
+  color: #9a6818;
+  margin-bottom: 4px;
+}
+.note-author {
+  display: block;
+  text-align: right;
+  margin-top: 6px;
+  color: #8c7f6e;
+  font-size: 11.5px;
+  font-style: italic;
+}
+
+/* Section Common in Subpage */
+.music-section {
+  padding: 96px 0;
+  border-bottom: 1px solid var(--line);
+  background: #ffffff;
+}
+.music-section-head {
+  margin-bottom: 44px;
+}
+.music-section-head p {
+  color: var(--music-primary);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.music-section-head h2 {
+  margin-top: 10px;
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.32;
+  letter-spacing: -0.02em;
+  color: #211e19;
+}
+.music-section-head.centered {
+  text-align: center;
+}
+.music-section-head.centered span {
+  display: block;
+  margin-top: 12px;
+  color: var(--ink-soft);
+  font-size: 16px;
+}
+
+/* Two Series Section */
+.music-series-section {
+  background: #fbfaf6;
+}
+.music-series-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+.music-series-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid var(--music-card-border);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(59, 50, 44, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.music-series-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 44px rgba(59, 50, 44, 0.12);
+}
+.series-banner-art {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #24211e;
+  overflow: hidden;
+}
+.series-banner-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.music-series-card:hover .series-banner-art img {
+  transform: scale(1.03);
+}
+.series-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(22, 20, 18, 0.82);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.series-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 28px 26px 24px;
+}
+.series-card-body h3 {
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  font-size: 23px;
+  line-height: 1.35;
+  color: #211e19;
+  margin-bottom: 12px;
+}
+.series-card-body p {
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.series-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+.series-tag {
+  font-size: 12px;
+  color: #554e44;
+  background: #f2ede2;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+.series-mood-list {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 24px;
+  list-style: none;
+  padding: 0;
+}
+.series-mood-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  color: #4a4338;
+  background: #fbf9f3;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #eee7d9;
+}
+.series-mood-list li b {
+  color: var(--music-primary);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+}
+.series-cta-btn {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: var(--music-primary);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.15s ease;
+}
+.series-cta-btn:hover {
+  background: var(--music-primary-hover);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Story & Craft Section */
+.music-craft-section {
+  background: #ffffff;
+}
+.music-craft-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 48px;
+  align-items: start;
+}
+.roommate-note-feature {
+  background: #fffdf7;
+  border: 2px solid #ecd89f;
+  border-radius: 24px;
+  padding: 32px 28px;
+  box-shadow: 0 16px 40px rgba(70, 55, 25, 0.1);
+}
+.note-paper-badge {
+  display: inline-block;
+  background: #f4e5b5;
+  color: #7d5910;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  padding: 4px 10px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.roommate-quote-headline {
+  font-family: "WantedSansWarmly", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #2b2319;
+  margin-bottom: 14px;
+}
+.roommate-quote-body {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.8;
+  color: #483d31;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 16px;
+  border-radius: 12px;
+  border-left: 3px solid #d3a73c;
+  margin-bottom: 16px;
+}
+.roommate-quote-sig {
+  text-align: right;
+  font-size: 14px;
+  font-weight: 600;
+  color: #7a6a57;
+  margin-bottom: 20px;
+}
+.roommate-philosophy {
+  color: var(--ink-soft);
+  font-size: 14.5px;
+  line-height: 1.7;
+  border-top: 1px dashed #e3d8be;
+  padding-top: 16px;
+}
+
+/* Craft 5 steps */
+.craft-steps {
+  display: grid;
+  gap: 16px;
+}
+.craft-step-card {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 16px;
+  padding: 20px 22px;
+  background: #fbfaf6;
+  border: 1px solid #ebe5d8;
+  border-radius: 16px;
+  align-items: start;
+}
+.craft-step-num {
+  width: 44px;
+  height: 44px;
+  background: #e9f0e8;
+  color: var(--music-primary);
+  font-size: 15px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+.craft-step-content h4 {
+  font-family: "WantedSansWarmly", var(--font-body);
+  font-weight: 600;
+  font-size: 17px;
+  color: #211e19;
+  margin-bottom: 6px;
+}
+.craft-step-content p {
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+/* Featured Playlists Section */
+.music-listen-section {
+  background: #f7f5ed;
+}
+.featured-video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.video-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid #e5dfd3;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(50, 42, 32, 0.06);
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.video-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(50, 42, 32, 0.12);
+  text-decoration: none;
+}
+.video-card-thumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #1f1b16;
+}
+.video-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.video-card:hover .video-card-thumb img {
+  transform: scale(1.04);
+}
+.video-card-pill {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(18, 16, 14, 0.78);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 9px;
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+}
+.video-card-duration {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+.video-play-btn {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.video-card:hover .video-play-btn {
+  opacity: 1;
+}
+.play-icon-circle {
+  width: 48px;
+  height: 48px;
+  background: var(--music-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.video-card-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 18px 18px 16px;
+}
+.video-note-title {
+  font-family: "WantedSansWarmly", var(--font-body);
+  font-size: 15.5px;
+  font-weight: 600;
+  color: #211e19;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+.video-series-title {
+  font-size: 13.5px;
+  color: var(--music-primary);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.video-sub-desc {
+  font-size: 12.5px;
+  color: #756e62;
+  line-height: 1.5;
+  margin-top: auto;
+}
+
+/* Final CTA Section */
+.music-final-cta {
+  padding: 104px 0;
+  text-align: center;
+  background: #201d19;
+  color: #f7f5ed;
+}
+.music-final-mark {
+  display: block;
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 12px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
+}
+.music-final-brand {
+  font-family: "WantedSansWarmly", sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #55c77e;
+  letter-spacing: -0.01em;
+}
+.music-final-slogan {
+  display: block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: #b5aba0;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+.music-final-cta h2 {
+  max-width: 20em;
+  margin: 20px auto 14px;
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.35;
+  color: #ffffff;
+}
+.music-final-cta p {
+  color: #c4baa9;
+  font-size: 16px;
+  max-width: 32em;
+  margin: 0 auto 32px;
+}
+.music-final-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.music-final-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14.5px;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+.music-final-btn.primary {
+  background: var(--music-primary);
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(45, 107, 65, 0.4);
+}
+.music-final-btn.primary:hover {
+  background: #36824f;
+  color: #ffffff;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+.music-final-btn.secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #f7f5ed;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.music-final-btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+/* Responsive queries for Music page */
+@media (max-width: 900px) {
+  .music-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .music-hero-copy {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .music-hero-copy h1,
+  .music-hero-actions,
+  .music-trust-row {
+    justify-content: center;
+  }
+  .music-lead {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .music-showcase {
+    min-height: 400px;
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .music-showcase-note {
+    left: 10px;
+    bottom: -15px;
+  }
+  .music-series-grid {
+    grid-template-columns: 1fr;
+    max-width: 580px;
+    margin: 0 auto;
+  }
+  .music-craft-grid {
+    grid-template-columns: 1fr;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .featured-video-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .music-hero {
+    padding: 60px 0 72px;
+  }
+  .music-hero-copy h1 {
+    gap: 8px;
+  }
+  .music-title-icon {
+    width: 44px;
+    height: 44px;
+  }
+  .music-ko-logo,
+  .music-en-logo {
+    font-size: 30px;
+  }
+  .music-hero-copy h2 {
+    font-size: 30px;
+  }
+  .music-lead {
+    font-size: 15px;
+  }
+  .music-showcase {
+    flex-direction: column;
+    min-height: 0;
+  }
+  .music-showcase-note {
+    position: static;
+    width: 100%;
+    margin-top: 14px;
+  }
+  .music-section {
+    padding: 70px 0;
+  }
+  .featured-video-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+  .music-final-cta {
+    padding: 80px 0;
+  }
+  .music-final-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  .music-final-btn {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+  }
 }
